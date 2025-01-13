@@ -7,5 +7,11 @@
 ### Notes:
 > These examples use manual setting for localstack
 > I'm using WSL2/Windows 11. 
+> Im using AWS (via localstack)
 
 ### Using localstack to prepare for Terraform certification
+
+### Get started
+1. Run terraform init
+2. Run Terraform plan or apply
+
