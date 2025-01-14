@@ -27,7 +27,7 @@ resource "aws_s3_object" "this" {
 
   bucket       = aws_s3_bucket.upload_bucket.id
   for_each     = fileset(var.fileset_path, var.fileset_pattern)
-  key          = each.value
+  key          = "openapi-${each.value}"
   source       = "${var.fileset_path}/${each.value}"
   content_type = each.value
   tags = merge(
@@ -80,9 +80,34 @@ resource "aws_s3_bucket_public_access_block" "logging_access_block" {
   block_public_policy     = true
 }
 
-resource "aws_s3_bucket_logging" "example" {
+
+resource "aws_s3_bucket_logging" "this" {
   bucket = aws_s3_bucket.upload_bucket.id
 
   target_bucket = aws_s3_bucket.log_bucket.id
   target_prefix = "log/"
+}
+
+resource "aws_s3_bucket_policy" "this" {
+  bucket = aws_s3_bucket.upload_bucket.id
+  policy = data.aws_iam_policy_document.this.json
+}
+
+data "aws_iam_policy_document" "this" {
+  statement {
+    principals {
+      type        = "Service"
+      identifiers = ["apigateway.amazonaws.com"]
+    }
+
+    actions = [
+      "s3:GetObject",
+      "s3:ListBucket",
+    ]
+
+    resources = [
+      aws_s3_bucket.upload_bucket.arn,
+      "${aws_s3_bucket.upload_bucket.arn}/*",
+    ]
+  }
 }
