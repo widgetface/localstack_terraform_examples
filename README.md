@@ -18,3 +18,4 @@
 
 ### branch: modules
 Develop modules for use in projects
+Using pre-commit hooks 
