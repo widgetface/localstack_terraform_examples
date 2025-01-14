@@ -6,7 +6,7 @@
 
 ### Notes:
 > These examples use manual setting for localstack
-> I'm using WSL2/Windows 11. 
+> I'm using WSL2/Windows 11.
 > Im using AWS (via localstack)
 
 ### Using localstack to prepare for Terraform certification
@@ -18,4 +18,4 @@
 
 ### branch: modules
 Develop modules for use in projects
-Using pre-commit hooks 
+Using pre-commit hooks
