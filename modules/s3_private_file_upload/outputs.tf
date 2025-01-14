@@ -23,11 +23,6 @@ output "bucket_creation_date" {
   description = "The creation date of the S3 bucket"
 }
 
-output "bucket_acl" {
-  value       = aws_s3_bucket.upload_bucket.acl
-  description = "The access control list of the S3 bucket"
-}
-
 output "bucket_domain_name" {
   value       = aws_s3_bucket.upload_bucket.bucket_domain_name
   description = "The domain name of the S3 bucket"
