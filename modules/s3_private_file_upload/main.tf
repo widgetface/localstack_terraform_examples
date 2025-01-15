@@ -8,6 +8,9 @@ resource "aws_s3_bucket" "upload_bucket" {
       created = formatdate("YYYYMMDDhhmmss", timestamp())
     },
   )
+  lifecycle {
+    ignore_changes = [tags]
+  }
 }
 
 resource "aws_s3_bucket_acl" "bucket_acl" {
