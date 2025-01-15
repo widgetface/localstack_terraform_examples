@@ -40,4 +40,10 @@ provider "aws" {
     stepfunctions  = "http://localhost:4566"
     sts            = "http://localhost:4566"
   }
+  default_tags {
+    tags = {
+      owner   = "widgetface"
+      project = "project_alpha"
+    }
+  }
 }
