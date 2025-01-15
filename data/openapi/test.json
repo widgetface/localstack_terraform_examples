@@ -1,0 +1,24 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "My API",
+      "version": "1.0.0"
+    },
+    "paths": {
+      "/hello": {
+        "get": {
+          "summary": "Returns a greeting",
+          "operationId": "hello",
+          "responses": {
+            "200": {
+              "description": "A greeting message",
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
