@@ -3,6 +3,11 @@ output "bucket_name" {
   description = "The name of the S3 bucket"
 }
 
+output "bucket_keys" {
+  value       = [for object in aws_s3_object.this : object.key]
+  description = "List of keys for obects in S3 bucket"
+}
+
 output "s3_bucket_id" {
   description = "The id of the bucket."
   value       = aws_s3_bucket.upload_bucket.id

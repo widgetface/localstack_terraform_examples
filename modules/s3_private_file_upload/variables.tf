@@ -22,7 +22,7 @@ variable "fileset_path" {
 variable "fileset_pattern" {
   description = "Pattern matcher (terraform fileset files reg ex) for files to be uploaded"
   type        = string
-  default     = "**/*.*"
+  default     = "**/*.json"
 }
 
 variable "additional_tags" {
