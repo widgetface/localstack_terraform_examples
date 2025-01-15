@@ -9,10 +9,20 @@ module "s3_upload" {
   }
 }
 
-module "apig" {
-  source           = "./modules/api_gateway_rest"
-  apig_name        = "project_alpha_apig_rest"
-  apig_description = "Project alpha API Gateway"
-  file_path        = "./data/openapi/test.json"
-  stage_name       = "dev"
+module "hello_lambda" {
+  source               = "./modules/lambda"
+  lambda_function_name = "project_alpha_hello_lambda"
+  file_output_path     = "./data/lambda/out/index.zip"
+  file_source_path     = "./data/lambda/index.py"
 }
+
+module "apig" {
+  source              = "./modules/api_gateway_rest"
+  apig_name           = "project_alpha_apig_rest"
+  apig_description    = "Project alpha API Gateway"
+  file_path           = "./data/openapi/test.json"
+  stage_name          = "dev"
+  lambda_function_arn = module.hello_lambda.lambda_function_arn
+  lambda_role_arn     = module.hello_lambda.lambda_function_arn
+}
+
