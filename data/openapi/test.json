@@ -16,6 +16,13 @@
                 "type": "string"
               }
             }
+          },
+          "x-amazon-apigateway-integration": {
+            "uri": "arn:aws:apigateway:{region}:lambda:path/2015-03-31/functions/{lambda_arn}/invocations",
+            "httpMethod": "GET",
+            "type": "aws_proxy",
+            "integrationHttpMethod": "GET",
+            "credentials": "{lambda_role_arn}"
           }
         }
       }
