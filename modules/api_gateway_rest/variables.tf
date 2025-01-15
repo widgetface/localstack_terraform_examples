@@ -30,3 +30,25 @@ variable "file_path" {
     error_message = "The string cannot be null and must use semantic versioning"
   }
 }
+# tflint-ignore: terraform_unused_declarations
+variable "api_gateway_url" {
+  description = "API Gateway url"
+  type        = string
+  default     = null
+}
+
+variable "stage_name" {
+  description = "Region used"
+  type        = string
+}
+
+variable "region" {
+  description = "Region used"
+  type        = string
+  default     = "us-east-1"
+}
+variable "additional_tags" {
+  default     = {}
+  description = "Additional resource tags"
+  type        = map(string)
+}
