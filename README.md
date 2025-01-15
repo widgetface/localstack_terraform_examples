@@ -26,4 +26,4 @@ Lambda is intergrated into the OpenAPI spec using the x-amazon-apigateway-integr
 
 To test the APIGateway get the API id from the Localstack resource browser, path and stage details and use:
 
-http://localhost:4566/_aws/execute-api/<apiId>/<stageName>/<path>
+http://localhost:4566/_aws/execute-api/apiId/stageName/path
