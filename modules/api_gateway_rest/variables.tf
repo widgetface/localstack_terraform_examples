@@ -42,6 +42,16 @@ variable "stage_name" {
   type        = string
 }
 
+variable "lambda_function_arn" {
+  description = "Lambda role arn"
+  type        = string
+}
+
+variable "lambda_role_arn" {
+  description = "Lambda role arn"
+  type        = string
+}
+
 variable "region" {
   description = "Region used"
   type        = string

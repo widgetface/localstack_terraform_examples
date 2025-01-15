@@ -6,7 +6,14 @@
 resource "aws_api_gateway_rest_api" "this" {
   name        = var.apig_name
   description = var.apig_description
-  body        = file(var.file_path)
+  body = replace(replace(replace(file(var.file_path),
+    "{region}",
+    var.region),
+    "{lambda_arn}",
+    var.lambda_function_arn),
+    "{lambda_role_arn}",
+  var.lambda_role_arn)
+
   endpoint_configuration {
     types = [var.apig_types]
   }
