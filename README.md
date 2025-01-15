@@ -18,4 +18,13 @@
 
 ### branch: modules
 Develop modules for use in projects
-Using pre-commit hooks
+Using pre-commit hooks to enable terraform fmt, lint, validate and tfSec checking of commited code.
+This branch contains a simple application consisting of
+API gateway and a Lambda function
+The API gateway is provsioned using an OpenAPI specification
+Lambda is intergrated into the OpenAPI spec using the x-amazon-apigateway-integration OpenAI extension.
+
+To test the APIGateway get the API id from the Localstack resource browser, path and stage details and use:
+
+*http://localhost:4566/_aws/execute-api/<apiId>/<stageName>/<path>*
+
