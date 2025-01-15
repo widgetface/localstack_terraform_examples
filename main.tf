@@ -14,4 +14,5 @@ module "apig" {
   apig_name        = "project_alpha_apig_rest"
   apig_description = "Project alpha API Gateway"
   file_path        = "./data/openapi/test.json"
+  stage_name       = "dev"
 }
